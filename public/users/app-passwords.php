@@ -24,11 +24,16 @@
  * fAppId
  *
  */
+if (preg_match('/\/users\//', $_SERVER['REQUEST_URI'])) {
+    $rel_path = '../';
+} else {
+    $rel_path = './';
+}
 
-require_once('../common.php');
+require_once($rel_path.'/common.php');
 
 $smarty = PFASmarty::getInstance();
-$smarty->configureTheme('../');
+$smarty->configureTheme($rel_path);
 
 $username = authentication_get_username();
 $pPassword_text = "";
