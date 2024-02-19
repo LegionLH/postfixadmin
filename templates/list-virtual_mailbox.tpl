@@ -53,8 +53,9 @@
 			<td>{$item.name}</td>
 			{if $CONF.quota===YES}
 				<td>
+						<div class="quota_bg"></div>
 				{if $item.quota==0}
-					{$PALANG.pOverview_unlimited}
+						<div class="quota_text">{$divide_quota.current[$i]} / {$PALANG.pOverview_unlimited}</div>
 				{elseif $item.quota<0}
 					{$PALANG.pOverview_disabled}
 				{else}
@@ -66,7 +67,6 @@
 							{assign var="quota_level" value="mid"}
 						{/if}
 						<div class="quota quota_{$quota_level}" style="width:{$divide_quota.quota_width[$i]}px;"></div>
-						<div class="quota_bg"></div>
 						<div class="quota_text quota_text_{$quota_level}">{$divide_quota.current[$i]} / {$divide_quota.quota[$i]}</div>
 					{else}
 						{$divide_quota.quota[$i]}
