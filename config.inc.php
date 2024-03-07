@@ -498,6 +498,10 @@ $CONF['sendmail_all_admins'] = 'NO';
 // If you don't want logging set this to 'NO';
 $CONF['logging'] = 'YES';
 
+// Journal
+// If you don't want logging set this to 'NO';
+$CONF['journal_logging'] = 'YES';
+
 // Fetchmail
 // If you don't want fetchmail tab set this to 'NO';
 $CONF['fetchmail'] = 'YES';

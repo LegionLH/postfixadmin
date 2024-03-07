@@ -129,13 +129,13 @@
                         {strip}
                             <li class="dropdown">
                                 <a class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                   aria-expanded="false" href="{#url_dkim#}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {$PALANG.pMenu_security} <span
+                                   aria-expanded="false" href=""><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {$PALANG.pMenu_security} <span
                                             class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{#url_password#}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {$PALANG.pMenu_password}</a></li>
                                     <li><a href="{#url_totp#}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {$PALANG.pMenu_totp}</a></li>
-                                    <li><a href="{#url_totp_exceptions#}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {$PALANG.pMenu_totp_exceptions}</a></li>
-                                    <li><a href="{#url_app_passwords#}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {$PALANG.pMenu_app_passwords}</a></li>
+                                    <!--li><a href="{#url_totp_exceptions#}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {$PALANG.pMenu_totp_exceptions}</a></li>
+                                    <li><a href="{#url_app_passwords#}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {$PALANG.pMenu_app_passwords}</a></li-->
                                 </ul>
                             </li>
                         {/strip}
@@ -153,7 +153,19 @@
 				{$PALANG.pAdminMenu_backup}</a></li>
                     {/if}
                     {* viewlog *}
-                    {if $CONF.logging==='YES'}
+                    {if $CONF.journal_logging==='YES'}
+                        {strip}
+                            <li class="dropdown">
+                                <a class="btn navbar-btn dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false" href=""><span class="glyphicon glyphicon-file" aria-hidden="true"></span> {$PALANG.pMenu_viewlog} <span
+                                            class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{#url_viewlog#}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Mail Admin</a></li>
+                                    <li><a href="{#url_maillog#}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Mail System</a></li>
+                                </ul>
+                            </li>
+                        {/strip}
+                    {elseif $CONF.logging==='YES'}
                         <li><a class="btn navbar-btn" type="button"
                                href="{#url_viewlog#}">
 				<span class="glyphicon glyphicon-file	" aria-hidden="true"></span>
